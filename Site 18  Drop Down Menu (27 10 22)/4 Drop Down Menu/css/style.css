@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0 100px;
+    background: #262626;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header .logo {
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    float: left;
+    font-weight: bold;
+}
+
+header nav {
+    float: right;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    list-style: none;
+    position: relative;
+}
+
+header nav ul li.sub_menu::before {
+    content: '\f0d7';
+    font-family: fontAwesome;
+    position: absolute;
+    line-height: 50px;
+    color: #fff;
+    right: 5px;
+}
+
+header nav ul li.active.sub_menu::before {
+    content: '\f0d8';
+}
+
+header nav ul li ul {
+    position: absolute;
+    left: 0;
+    background: #333;
+    display: none;
+}
+
+header nav ul li.active ul {
+    display: block;
+}
+
+header nav ul li ul li {
+    display: block;
+    width: 200px;
+}
+
+header nav ul li a {
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease-in;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    color: #2196f3;
+    transition: all 0.3s ease-in;
+}
+
+.menu-toggle {
+    color: #fff;
+    float: right;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 991px) {
+    header {
+        padding: 0 20px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    header nav {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh -- 50px);
+        background: rgb(72, 72, 72);
+        top: 50px;
+        left: -100%;
+        transition: 0.5s;
+    }
+    header nav.active {
+        left: 0;
+        transition: .3s ease-in-out;
+    }
+    header nav ul {
+        display: block;
+        text-align: center;
+    }
+    header nav ul li a {
+        border: none;
+    }
+    header nav ul li.active ul {
+        position: relative;
+        background: rgb(58, 58, 58);
+    }
+    header nav ul li ul li {
+        width: 100%;
+    }
+}
